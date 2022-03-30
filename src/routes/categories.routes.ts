@@ -5,8 +5,12 @@ import { listCategoriesController } from '../modules/cars/useCases/listCategorie
 
 const categoriesRoutes = Router();
 
-categoriesRoutes.get('/', listCategoriesController.handle);
+categoriesRoutes.get('/', (request, response) => {
+  return listCategoriesController.handle(request, response);
+});
 
-categoriesRoutes.post('/', createCategoryController.handle);
+categoriesRoutes.post('/', (request, response) => {
+  return createCategoryController.handle(request, response);
+});
 
 export { categoriesRoutes };
